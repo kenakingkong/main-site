@@ -1,1 +1,4 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+Main site that should redirect to all of my other sites. I have too many sites lol.
+
+
+Built with NextJS.

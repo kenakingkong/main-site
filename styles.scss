@@ -1,0 +1,134 @@
+$font-playfair: "Playfair Display";
+$font-tw-cen-mt: "TW Cen MT";
+
+$black: #000;
+$white: #fff;
+
+$purple-primary: #6B4164;
+$purple-secondary: #A15995;
+$purple-tertiary: #C09ABA;
+$yellow: #CDBF43;
+$light-green: #00FF7E;
+$light-blue: #D7E6EA;
+$beige: #E4DFCF;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: $beige;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ @mixin keyframes($animation-name) {
+   @-webkit-keyframes #{$animation-name} {
+     @content;
+   }
+   @-moz-keyframes #{$animation-name} {
+     @content;
+   }  
+   @-ms-keyframes #{$animation-name} {
+     @content;
+   }
+   @-o-keyframes #{$animation-name} {
+     @content;
+   }  
+   @keyframes #{$animation-name} {
+     @content;
+   }
+ }
+ 
+ @mixin animation($str) {
+   -webkit-animation: #{$str};
+   -moz-animation: #{$str};
+   -ms-animation: #{$str};
+   -o-animation: #{$str};
+   animation: #{$str};      
+ }
+
+ @include keyframes(flow) {
+   to {
+      background-position: 200%;
+   }
+ }
+
+ @mixin rainbow {
+   font-weight: bolder;
+   background: linear-gradient(-50deg,  #A15995 20%, #51186C 40%, #51186C 60%, #3e97a3 80%);
+   background-size: 200% auto;
+   background-clip: text;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+
+   @include animation('flow 3s ease-in-out infinite');
+ }
+
+.layout {
+   margin: 5%;
+}
+
+.intro {
+   font-size: calc(2vw + 2vh + 1vmin);
+   font-family: $font-tw-cen-mt;
+
+   &-name {
+      font-weight: bold;
+      font-family: $font-playfair;
+      color: $purple-primary;
+      padding: 0 10px;
+   }
+
+   &-pronouns {
+      font-size: calc(1.25vw + 1.25vh + 0.75vmin);
+      padding: 0 1px;
+   }
+
+   &-link {
+      font-weight: bold;
+      font-family: $font-playfair;
+      color: $purple-primary;
+      padding: 0 10px;
+
+      &:hover {
+         @include rainbow;
+      }
+   }
+}
+
+footer {
+   position: fixed;
+   bottom: 5%;
+   width: 90%;
+}
+
+.icon {
+   &-group {
+      float: left;
+      position: fixed;
+      bottom: 5%;
+   }
+
+   &-link {
+      color: $purple-primary;
+
+      &:hover {
+         color: $yellow
+      }
+   }
+
+   &-icon {
+      width: 35px;
+      margin: 0 15px;
+
+      &:hover {
+         width: 40px;
+      }
+   }
+}
+
+.logo {
+   float: right;
+}
